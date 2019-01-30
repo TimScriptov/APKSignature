@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">APKSignature</string>
+	<string name="package_field">package name</string>
+	<string name="select">Choose</string>
+	<string name="copy">Copy to clipboard</string>
+	<string name="output">Signature:</string>
+	<string name="sha_sign">SHA</string>
+	<string name="md_sign">MD5</string>
+</resources>
