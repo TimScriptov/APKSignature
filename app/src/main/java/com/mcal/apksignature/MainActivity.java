@@ -117,7 +117,7 @@ public class MainActivity extends Activity implements View.OnClickListener
 			}
 			
 		// Получение CRC32 подписи
-		String getAPKSignatureCRC32 ()
+		/*String getAPKSignatureCRC32 ()
 			{
 				String name = packageNameField.getText ( ).toString ( ).trim ( );
 				if ( name == null || name.isEmpty ( ) )
@@ -134,15 +134,13 @@ public class MainActivity extends Activity implements View.OnClickListener
 								Signature signature = info.signatures [ 0 ];
 								MessageDigest crc = null;
 								try
-									{
-										crc = MessageDigest.getInstance ( "CRC32" );
-										crc.update( signature.toByteArray ( ) );
-										return Base64.encodeToString ( crc.digest ( ), Base64.DEFAULT );
-									}
+								{
+									//
+								}
 								catch (NoSuchAlgorithmException e)
-									{
-										e.printStackTrace ( );
-									}
+								{
+									e.printStackTrace ( );
+								}
 							}
 					}
 				catch (PackageManager.NameNotFoundException e)
@@ -150,7 +148,7 @@ public class MainActivity extends Activity implements View.OnClickListener
 						Toast.makeText ( this, "Приложение не существует", Toast.LENGTH_LONG ).show ( );
 					}
 				return "";
-			}
+			}*/
 		
 			
 		// Получение SHA подписи
