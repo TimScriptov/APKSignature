@@ -3,12 +3,10 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:padding="10dp">
 
 	<LinearLayout
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
-		android:layout_marginTop="20dp"
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -31,27 +29,50 @@
 
 	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		
+		<Button
+			android:id="@+id/genSignatureCRC32Btn"
+			android:text="CRC32"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+		
 		<Button
 			android:id="@+id/genSignatureSHABtn"
-			android:text="@string/sha_sign"
-			android:layout_marginLeft="16dp"
-			android:layout_marginRight="8dp"
-			android:layout_marginTop="20dp"
+			android:text="SHA"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
+			android:layout_height="wrap_content"/>
+
+		<Button
+			android:id="@+id/genSignatureSHA1Btn"
+			android:text="SHA1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
+		<Button
+			android:id="@+id/genSignatureSHA256Btn"
+			android:text="SHA256"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
+		<Button
+			android:id="@+id/genSignatureSHA384Btn"
+			android:text="SHA384"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
+		<Button
+			android:id="@+id/genSignatureSHA512Btn"
+			android:text="SHA512"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
 
 		<Button
 			android:id="@+id/genSignatureMDBtn"
-			android:text="@string/md_sign"
-			android:layout_marginLeft="8dp"
-			android:layout_marginRight="16dp"
-			android:layout_marginTop="20dp"
+			android:text="MD5"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
+			android:layout_height="wrap_content"/>
 
 	</LinearLayout>
 
@@ -74,8 +95,6 @@
 	<Button
 		android:id="@+id/copyBtn"
 		android:text="@string/copy"
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"/>
 

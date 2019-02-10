@@ -8,8 +8,8 @@ android {
         applicationId "com.mcal.apksignature"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
     }
     buildTypes {
         release {
@@ -20,5 +20,6 @@ android {
 }
 
 dependencies {
+	api 'com.android.support:cardview-v7:27.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
