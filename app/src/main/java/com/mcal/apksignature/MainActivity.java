@@ -119,18 +119,7 @@ public class MainActivity extends Activity implements View.OnClickListener
 						PackageInfo info = getPackageManager ( ).getPackageInfo ( name, PackageManager.GET_SIGNATURES );
 						if ( info.signatures != null && info.signatures.length > 0 )
 							{
-								Signature signature = info.signatures [ 0 ];
-								MessageDigest md32 = null;
-								try
-									{
-										md32 = MessageDigest.getInstance ( "CRC32" );
-										byte[] digest = md32.digest( signature.toByteArray ( ) );
-										return toHexString ( digest );
-									}
-								catch (NoSuchAlgorithmException e)
-									{
-										e.printStackTrace ( );
-									}
+								//
 							}
 					}
 				catch (PackageManager.NameNotFoundException e)
