@@ -9,8 +9,7 @@
 	<LinearLayout
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:gravity="center">
+		android:layout_height="wrap_content">
 
 		<EditText
 			android:id="@+id/packageField"
@@ -27,76 +26,167 @@
 
 	</LinearLayout>
 
-	<LinearLayout
+	<Button
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
-		
-		<Button
-			android:id="@+id/genSignatureCRC32Btn"
-			android:text="CRC32"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
-		
-		<Button
-			android:id="@+id/genSignatureSHABtn"
-			android:text="SHA"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+		android:text="GO"
+		android:id="@+id/btnGo"/>
 
-		<Button
-			android:id="@+id/genSignatureSHA1Btn"
-			android:text="SHA1"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="SHA:"
+		android:textStyle="bold"/>
 
-		<Button
-			android:id="@+id/genSignatureSHA256Btn"
-			android:text="SHA256"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 
-		<Button
-			android:id="@+id/genSignatureSHA384Btn"
-			android:text="SHA384"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+		<TextView
+			android:id="@+id/resultSHA"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
 
-		<Button
-			android:id="@+id/genSignatureSHA512Btn"
-			android:text="SHA512"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
-
-		<Button
-			android:id="@+id/genSignatureMDBtn"
-			android:text="MD5"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copySHA"
+			android:src="@drawable/ic_action_content_copy"/>
 
 	</LinearLayout>
 
 	<TextView
-		android:layout_marginLeft="16dp"
-		android:layout_marginRight="16dp"
-		android:layout_marginTop="20dp"
-		android:text="@string/output"
-		android:textSize="16sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="SHA1:"
+		android:textStyle="bold"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/resultSHA1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
+
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copySHA1"
+			android:src="@drawable/ic_action_content_copy"/>
+
+	</LinearLayout>
 
 	<TextView
-		android:id="@+id/resultText"
-		android:layout_margin="16dp"
-		android:textSize="16sp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="SHA256:"
+		android:textStyle="bold"/>
 
-	<Button
-		android:id="@+id/copyBtn"
-		android:text="@string/copy"
+	<LinearLayout
+		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/resultSHA256"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
+
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copySHA256"
+			android:src="@drawable/ic_action_content_copy"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="SHA384:"
+		android:textStyle="bold"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/resultSHA384"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
+
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copySHA384"
+			android:src="@drawable/ic_action_content_copy"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="SHA512:"
+		android:textStyle="bold"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/resultSHA512"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
+
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copySHA512"
+			android:src="@drawable/ic_action_content_copy"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="MD5:"
+		android:textStyle="bold"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/resultMD5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"/>
+
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="copy"
+			android:id="@+id/copyMD5"
+			android:src="@drawable/ic_action_content_copy"/>
+
+	</LinearLayout>
 
 </LinearLayout>
 

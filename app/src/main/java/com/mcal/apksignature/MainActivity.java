@@ -24,8 +24,12 @@ public class MainActivity extends Activity implements View.OnClickListener
 
 		private EditText packageNameField;
 
-		private TextView resultTextView;
-
+		private TextView resultTextSHA;
+		private TextView resultTextSHA1;
+		private TextView resultTextSHA256;
+		private TextView resultTextSHA384;
+		private TextView resultTextSHA512;
+		private TextView resultTextMD5;
 		@Override
 		protected void onCreate ( Bundle savedInstanceState )
 			{
@@ -34,17 +38,20 @@ public class MainActivity extends Activity implements View.OnClickListener
 
 				packageNameField = (EditText) findViewById ( R.id.packageField );
 
-				resultTextView = (TextView) findViewById ( R.id.resultText );
-
+				resultTextSHA = (TextView) findViewById ( R.id.resultSHA );
+				resultTextSHA1 = (TextView) findViewById ( R.id.resultSHA1 );
+				resultTextSHA256 = (TextView) findViewById ( R.id.resultSHA256 );
+				resultTextSHA384 = (TextView) findViewById ( R.id.resultSHA384 );
+				resultTextSHA512 = (TextView) findViewById ( R.id.resultSHA512 );
+				resultTextMD5 = (TextView) findViewById ( R.id.resultMD5 );
+				
 				findViewById ( R.id.selectBtn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureCRC32Btn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureSHABtn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureSHA1Btn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureSHA256Btn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureSHA384Btn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureSHA512Btn ).setOnClickListener ( this );
-				findViewById ( R.id.genSignatureMDBtn ).setOnClickListener ( this );
-				findViewById ( R.id.copyBtn ).setOnClickListener ( this );
+				findViewById ( R.id.btnGo ).setOnClickListener ( this );
+				findViewById ( R.id.copySHA ).setOnClickListener ( this );
+				findViewById ( R.id.copySHA1 ).setOnClickListener ( this );
+				findViewById ( R.id.copySHA384 ).setOnClickListener ( this );
+				findViewById ( R.id.copySHA512 ).setOnClickListener ( this );
+				findViewById ( R.id.copyMD5 ).setOnClickListener ( this );
 			}
 
 		@Override
@@ -55,43 +62,48 @@ public class MainActivity extends Activity implements View.OnClickListener
 						case R.id.selectBtn:
 							onSelect ( );
 							break;
-						case R.id.genSignatureCRC32Btn:
-							String signCRC32 = getAPKSignatureCRC32 ();
-							Log.d ( "Signature:", signCRC32 );
-							resultTextView.setText ( signCRC32 );
-							break;
-						case R.id.genSignatureSHABtn:
+						case R.id.btnGo:
 							String signSHA = getAPKSignatureSHA ();
-							Log.d ( "Signature:", signSHA );
-							resultTextView.setText ( signSHA );
-							break;
-						case R.id.genSignatureSHA1Btn:
+							Log.d ( "Signature SHA:", signSHA );
+							resultTextSHA.setText ( signSHA );
+							
 							String signSHA1 = getAPKSignatureSHA1 ();
-							Log.d ( "Signature:", signSHA1 );
-							resultTextView.setText ( signSHA1 );
-							break;
-						case R.id.genSignatureSHA256Btn:
+							Log.d ( "Signature SHA1:", signSHA1 );
+							resultTextSHA1.setText ( signSHA1 );
+							
 							String signSHA256 = getAPKSignatureSHA256 ();
-							Log.d ( "Signature:", signSHA256 );
-							resultTextView.setText ( signSHA256 );
-							break;
-						case R.id.genSignatureSHA384Btn:
+							Log.d ( "Signature SHA256:", signSHA256 );
+							resultTextSHA256.setText ( signSHA256 );
+							
 							String signSHA384 = getAPKSignatureSHA384 ();
-							Log.d ( "Signature:", signSHA384 );
-							resultTextView.setText ( signSHA384 );
-							break;
-						case R.id.genSignatureSHA512Btn:
+							Log.d ( "Signature SHA384:", signSHA384 );
+							resultTextSHA384.setText ( signSHA384 );
+							
 							String signSHA512 = getAPKSignatureSHA512 ();
-							Log.d ( "Signature:", signSHA512 );
-							resultTextView.setText ( signSHA512 );
+							Log.d ( "Signature SHA512:", signSHA512 );
+							resultTextSHA512.setText ( signSHA512 );
+							
+							String signMD5 = getAPKSignatureMD5 ();
+							Log.d ( "Signature MD5:", signMD5 );
+							resultTextMD5.setText ( signMD5 );
 							break;
-						case R.id.genSignatureMDBtn:
-							String signMD = getAPKSignatureMD ( );
-							Log.d ( "Signature:", signMD );
-							resultTextView.setText ( signMD );
+						case R.id.copySHA:
+							copySHA ( );
 							break;
-						case R.id.copyBtn:
-							copy ( );
+						case R.id.copySHA1:
+							copySHA1 ( );
+							break;
+						case R.id.copySHA256:
+							copySHA256 ( );
+							break;
+						case R.id.copySHA384:
+							copySHA384 ( );
+							break;
+						case R.id.copySHA512:
+							copySHA512 ( );
+							break;
+						case R.id.copyMD5:
+							copyMD5 ( );
 							break;
 						default:
 							break;
@@ -119,7 +131,18 @@ public class MainActivity extends Activity implements View.OnClickListener
 						PackageInfo info = getPackageManager ( ).getPackageInfo ( name, PackageManager.GET_SIGNATURES );
 						if ( info.signatures != null && info.signatures.length > 0 )
 							{
-								//
+								Signature signature = info.signatures [ 0 ];
+								MessageDigest crc = null;
+								try
+									{
+										crc = MessageDigest.getInstance ( "CRC32" );
+										crc.update( signature.toByteArray ( ) );
+										return Base64.encodeToString ( crc.digest ( ), Base64.DEFAULT );
+									}
+								catch (NoSuchAlgorithmException e)
+									{
+										e.printStackTrace ( );
+									}
 							}
 					}
 				catch (PackageManager.NameNotFoundException e)
@@ -311,7 +334,7 @@ public class MainActivity extends Activity implements View.OnClickListener
 			}
 			
 		// Получение MD5 подписи
-		String getAPKSignatureMD ( )
+		String getAPKSignatureMD5 ( )
 			{
 				String name = packageNameField.getText ( ).toString ( ).trim ( );
 				if ( name == null || name.isEmpty ( ) )
@@ -346,13 +369,48 @@ public class MainActivity extends Activity implements View.OnClickListener
 				return "";
 			}
 
-		void copy ( )
+		void copySHA ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
-				cmb.setText ( resultTextView.getText ( ).toString ( ) );
+				cmb.setText ( resultTextSHA.getText ( ).toString ( ) );
 				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
-
+			
+		void copySHA1 ( )
+			{
+				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
+				cmb.setText ( resultTextSHA1.getText ( ).toString ( ) );
+				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+			}
+			
+		void copySHA256 ( )
+			{
+				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
+				cmb.setText ( resultTextSHA256.getText ( ).toString ( ) );
+				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+			}
+			
+		void copySHA384 ( )
+			{
+				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
+				cmb.setText ( resultTextSHA384.getText ( ).toString ( ) );
+				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+			}
+			
+		void copySHA512 ( )
+			{
+				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
+				cmb.setText ( resultTextSHA512.getText ( ).toString ( ) );
+				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+			}
+			
+		void copyMD5 ( )
+			{
+				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
+				cmb.setText ( resultTextMD5.getText ( ).toString ( ) );
+				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+			}
+			
 		@Override
 		protected void onActivityResult ( int requestCode, int resultCode, Intent data )
 			{
