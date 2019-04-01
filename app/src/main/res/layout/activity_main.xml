@@ -32,161 +32,169 @@
 		android:text="GO"
 		android:id="@+id/btnGo"/>
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="SHA:"
-		android:textStyle="bold"/>
-
-	<LinearLayout
-		android:orientation="horizontal"
+	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<TextView
-			android:id="@+id/resultSHA"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
-
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copySHA"
-			android:src="@drawable/ic_action_content_copy"/>
-
-	</LinearLayout>
-
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="SHA1:"
-		android:textStyle="bold"/>
-
-	<LinearLayout
-		android:orientation="horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-
-		<TextView
-			android:id="@+id/resultSHA1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
-
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copySHA1"
-			android:src="@drawable/ic_action_content_copy"/>
-
-	</LinearLayout>
-
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="SHA256:"
-		android:textStyle="bold"/>
-
-	<LinearLayout
-		android:orientation="horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-
-		<TextView
-			android:id="@+id/resultSHA256"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
-
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copySHA256"
-			android:src="@drawable/ic_action_content_copy"/>
-
-	</LinearLayout>
-
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="SHA384:"
-		android:textStyle="bold"/>
-
-	<LinearLayout
-		android:orientation="horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-
-		<TextView
-			android:id="@+id/resultSHA384"
+		<LinearLayout
+			android:orientation="vertical"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
+			android:layout_height="wrap_content">
 
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copySHA384"
-			android:src="@drawable/ic_action_content_copy"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SHA:"
+				android:textStyle="bold"/>
 
-	</LinearLayout>
+			<LinearLayout
+				android:id="@+id/copySHA"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="SHA512:"
-		android:textStyle="bold"/>
+				<TextView
+					android:id="@+id/resultSHA"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
 
-	<LinearLayout
-		android:orientation="horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+			</LinearLayout>
 
-		<TextView
-			android:id="@+id/resultSHA512"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
 
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copySHA512"
-			android:src="@drawable/ic_action_content_copy"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SHA1:"
+				android:textStyle="bold"/>
 
-	</LinearLayout>
+			<LinearLayout
+				android:id="@+id/copySHA1"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="MD5:"
-		android:textStyle="bold"/>
+				<TextView
+					android:id="@+id/resultSHA1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
 
-	<LinearLayout
-		android:orientation="horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+			</LinearLayout>
 
-		<TextView
-			android:id="@+id/resultMD5"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1.0"/>
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
 
-		<ImageButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="copy"
-			android:id="@+id/copyMD5"
-			android:src="@drawable/ic_action_content_copy"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SHA256:"
+				android:textStyle="bold"/>
 
-	</LinearLayout>
+			<LinearLayout
+				android:id="@+id/copySHA256"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<TextView
+					android:id="@+id/resultSHA256"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
+
+			</LinearLayout>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SHA384:"
+				android:textStyle="bold"/>
+
+			<LinearLayout
+				android:id="@+id/copySHA384"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<TextView
+					android:id="@+id/resultSHA384"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
+
+			</LinearLayout>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SHA512:"
+				android:textStyle="bold"/>
+
+			<LinearLayout
+				android:id="@+id/copySHA512"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<TextView
+					android:id="@+id/resultSHA512"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
+
+			</LinearLayout>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="MD5:"
+				android:textStyle="bold"/>
+
+			<LinearLayout
+				android:id="@+id/copyMD5"
+				style="?android:attr/buttonBarButtonStyle"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<TextView
+					android:id="@+id/resultMD5"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.0"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
 
 </LinearLayout>
 

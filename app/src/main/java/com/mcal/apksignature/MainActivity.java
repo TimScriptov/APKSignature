@@ -36,19 +36,20 @@ public class MainActivity extends Activity implements View.OnClickListener
 				super.onCreate ( savedInstanceState );
 				setContentView ( R.layout.activity_main );
 
-				packageNameField = (EditText) findViewById ( R.id.packageField );
+				packageNameField = findViewById ( R.id.packageField );
 
-				resultTextSHA = (TextView) findViewById ( R.id.resultSHA );
-				resultTextSHA1 = (TextView) findViewById ( R.id.resultSHA1 );
-				resultTextSHA256 = (TextView) findViewById ( R.id.resultSHA256 );
-				resultTextSHA384 = (TextView) findViewById ( R.id.resultSHA384 );
-				resultTextSHA512 = (TextView) findViewById ( R.id.resultSHA512 );
-				resultTextMD5 = (TextView) findViewById ( R.id.resultMD5 );
+				resultTextSHA = findViewById ( R.id.resultSHA );
+				resultTextSHA1 = findViewById ( R.id.resultSHA1 );
+				resultTextSHA256 = findViewById ( R.id.resultSHA256 );
+				resultTextSHA384 = findViewById ( R.id.resultSHA384 );
+				resultTextSHA512 = findViewById ( R.id.resultSHA512 );
+				resultTextMD5 = findViewById ( R.id.resultMD5 );
 				
 				findViewById ( R.id.selectBtn ).setOnClickListener ( this );
 				findViewById ( R.id.btnGo ).setOnClickListener ( this );
 				findViewById ( R.id.copySHA ).setOnClickListener ( this );
 				findViewById ( R.id.copySHA1 ).setOnClickListener ( this );
+				findViewById ( R.id.copySHA256 ).setOnClickListener ( this );
 				findViewById ( R.id.copySHA384 ).setOnClickListener ( this );
 				findViewById ( R.id.copySHA512 ).setOnClickListener ( this );
 				findViewById ( R.id.copyMD5 ).setOnClickListener ( this );
@@ -117,38 +118,10 @@ public class MainActivity extends Activity implements View.OnClickListener
 			}
 			
 		// Получение CRC32 подписи
-		/*String getAPKSignatureCRC32 ()
+		String getAPKSignatureCRC32 ()
 			{
-				String name = packageNameField.getText ( ).toString ( ).trim ( );
-				if ( name == null || name.isEmpty ( ) )
-					{
-						Toast.makeText ( this, "Выберите приложение", Toast.LENGTH_LONG ).show ( );
-						return "";
-					}
-
-				try
-					{
-						PackageInfo info = getPackageManager ( ).getPackageInfo ( name, PackageManager.GET_SIGNATURES );
-						if ( info.signatures != null && info.signatures.length > 0 )
-							{
-								Signature signature = info.signatures [ 0 ];
-								MessageDigest crc = null;
-								try
-								{
-									//
-								}
-								catch (NoSuchAlgorithmException e)
-								{
-									e.printStackTrace ( );
-								}
-							}
-					}
-				catch (PackageManager.NameNotFoundException e)
-					{
-						Toast.makeText ( this, "Приложение не существует", Toast.LENGTH_LONG ).show ( );
-					}
-				return "";
-			}*/
+				return null;
+			}
 		
 			
 		// Получение SHA подписи
@@ -371,42 +344,42 @@ public class MainActivity extends Activity implements View.OnClickListener
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextSHA.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"SHA\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		void copySHA1 ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextSHA1.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"SHA1\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		void copySHA256 ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextSHA256.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"SHA256\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		void copySHA384 ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextSHA384.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"SHA384\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		void copySHA512 ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextSHA512.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"SHA512\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		void copyMD5 ( )
 			{
 				ClipboardManager cmb = (ClipboardManager)getSystemService ( Context.CLIPBOARD_SERVICE );
 				cmb.setText ( resultTextMD5.getText ( ).toString ( ) );
-				Toast.makeText ( this, "Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
+				Toast.makeText ( this, "\"MD5\" Скопирован в буфер обмена", Toast.LENGTH_LONG ).show ( );
 			}
 			
 		@Override
